@@ -8,12 +8,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 
-// ▼▼▼ r3f / drei ▼▼▼
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Stars } from "@react-three/drei";
 
-// 🔹 komponent ładujący
 function Loader() {
   return (
     <div className="earth-loader">
@@ -27,7 +25,6 @@ function GradualSpacing({ text = "Konkurs GeoGuessr ZSEM", isEarthLoaded }) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Animuj tylko gdy Ziemia jest załadowana
   const shouldAnimate = isInView && isEarthLoaded;
 
   return (
@@ -51,12 +48,10 @@ function GradualSpacing({ text = "Konkurs GeoGuessr ZSEM", isEarthLoaded }) {
   );
 }
 
-// 🔹 komponent dla fade-in buttona
 function FadeInButton({ children, isEarthLoaded }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Animuj tylko gdy Ziemia jest załadowana
   const shouldAnimate = isInView && isEarthLoaded;
 
   return (
@@ -73,7 +68,7 @@ function FadeInButton({ children, isEarthLoaded }) {
 }
 
 function BackgroundScene({ earthScale = 10 }) {
-  // Załaduj wszystkie tekstury
+
   const [earthMap, bumpMap, cloudMap, galaxyMap] = useLoader(TextureLoader, [
     "./earth.jpg",
     "./earthbump.jpg",
@@ -93,34 +88,28 @@ function BackgroundScene({ earthScale = 10 }) {
 
   return (
     <>
-      {/* Główne oświetlenie - kierunkowe światło słoneczne */}
       <directionalLight
         position={[5, 3, 5]}
         intensity={1.5}
         color="#ffffff"
         castShadow
       />
-      
-      {/* Dodatkowe oświetlenie otoczenia */}
+
       <ambientLight intensity={0.4} color="#404060" />
       
-      {/* Oświetlenie wypełniające z przeciwnej strony */}
       <directionalLight
         position={[-3, -2, -3]}
         intensity={0.3}
         color="#304080"
       />
       
-      {/* Punktowe światło dla lepszych refleksów */}
       <pointLight position={[2, 1, 2]} intensity={0.5} distance={10} />
 
-      {/* Galaktyka */}
       <mesh ref={galaxyRef}>
         <sphereGeometry args={[80, 64, 64]} />
         <meshBasicMaterial map={galaxyMap} side={2} transparent opacity={0.8} />
       </mesh>
 
-      {/* Ziemia - zmieniamy materiał na Standard dla lepszego oświetlenia */}
       <mesh ref={earthRef} position={[0, 0, 0]} scale={[earthScale, earthScale, earthScale]}>
         <sphereGeometry args={[0.6, 64, 64]} />
         <meshStandardMaterial
@@ -132,7 +121,6 @@ function BackgroundScene({ earthScale = 10 }) {
         />
       </mesh>
 
-      {/* Chmury - jaśniejsze i bardziej przejrzyste */}
       <mesh ref={cloudRef} scale={[earthScale, earthScale, earthScale]}>
         <sphereGeometry args={[0.63, 64, 64]} />
         <meshStandardMaterial 

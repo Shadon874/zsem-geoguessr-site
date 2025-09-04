@@ -13,7 +13,7 @@ body {
     
     .canvas-container {
       position: relative;
-      height: 120vh; // Make canvas container full viewport height
+      height: 120vh;
       margin: 0;
       padding: 0;
       
@@ -146,13 +146,13 @@ body {
   
 .gradual-spacing {
   position: absolute;
-  top: 50%;                // środek pionowo
-  right: 5%;               // trochę odstępu od prawej
+  top: 50%;                
+  right: 5%;            
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  z-index: 5; // nad canvasem
+  z-index: 5;
 }
 
 .gradual-char {
@@ -165,8 +165,8 @@ body {
 
 .read-more-wrapper {
   position: absolute;
-  top: calc(50% + 5rem); // trochę pod tekstem gradual-spacing
-  right: 5%;             // trzyma się tego samego prawego marginesu
+  top: calc(50% + 5rem);
+  right: 5%;           
   transform: translateY(-50%);
   z-index: 5;
 }
