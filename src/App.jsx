@@ -3,7 +3,7 @@ import "./App.scss";
 import {
   Instagram,
   Facebook,
-  Youtube, 
+  Youtube,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useInView } from "framer-motion";
@@ -96,13 +96,13 @@ function BackgroundScene({ earthScale = 10 }) {
       />
 
       <ambientLight intensity={0.4} color="#404060" />
-      
+
       <directionalLight
         position={[-3, -2, -3]}
         intensity={0.3}
         color="#304080"
       />
-      
+
       <pointLight position={[2, 1, 2]} intensity={0.5} distance={10} />
 
       <mesh ref={galaxyRef}>
@@ -123,9 +123,9 @@ function BackgroundScene({ earthScale = 10 }) {
 
       <mesh ref={cloudRef} scale={[earthScale, earthScale, earthScale]}>
         <sphereGeometry args={[0.63, 64, 64]} />
-        <meshStandardMaterial 
-          map={cloudMap} 
-          transparent 
+        <meshStandardMaterial
+          map={cloudMap}
+          transparent
           opacity={0.8}
           roughness={0.9}
           metalness={0.1}
@@ -150,17 +150,18 @@ function App() {
       <div className="canvas-container">
         <Canvas className="background-canvas" dpr={[1, 2]}>
           <Suspense fallback={null}>
-            <BackgroundScene 
-              earthScale={earthScale} 
+            <BackgroundScene
+              earthScale={earthScale}
             />
           </Suspense>
         </Canvas>
 
         <div className="header-container">
           <header className="header">
-            <div className="logo">
+            <div onClick={() => navigate("/")} className="logo">
               <span>Geoguessr</span> ZSEM
             </div>
+
             <nav className="navigation">
               <a onClick={() => navigate("/harmonogram")} href="#destinations">Harmonogram</a>
               <a href="#tours">Regulamin</a>
@@ -171,8 +172,8 @@ function App() {
           </header>
         </div>
 
-        <GradualSpacing 
-          text="Konkurs GeoGuessr ZSEM" 
+        <GradualSpacing
+          text="Konkurs GeoGuessr ZSEM"
           isEarthLoaded={true}
         />
 

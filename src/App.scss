@@ -48,6 +48,7 @@ body {
         position: fixed;
         top: 1.5rem;
         transition: all 0.3s ease;
+        max-height: 10vh;
     
         .logo {
           font-size: 28px;
@@ -55,6 +56,7 @@ body {
           letter-spacing: 1px;
           color: #ffffff;
           margin-right: 75px;
+          cursor: pointer;
   
           span {
             font-weight: 700;
@@ -68,6 +70,8 @@ body {
         text-decoration: none;
         color: #ffffff;
         transition: color 0.3s ease;
+        max-height: 10vh;
+        cursor: pointer;
       
         &::after {
           content: "";
@@ -95,16 +99,16 @@ body {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 40px;
       padding: 60px 40px;
-      background: #1a1b2b;
+      background: #161616;
       box-shadow: 0 -20px 10px 0 #1a1b2b;
       color: white;
       position: relative;
       width: 100vw;
       box-shadow: 
-        0 -30px 40px -10px rgba(26, 27, 43, 0.8),
-        0 -60px 60px -20px rgba(26, 27, 43, 0.6),
-        0 -90px 70px -30px rgba(26, 27, 43, 0.4),
-        0 -120px 80px -40px rgba(26, 27, 43, 0.2);
+        0 -30px 40px -10px #161616,
+        0 -60px 60px -20px #161616,
+        0 -90px 70px -30px #161616,
+        0 -120px 80px -40px #161616;
   
       .footer-section {
         h3 {
