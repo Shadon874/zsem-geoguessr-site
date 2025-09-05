@@ -1,0 +1,65 @@
+body {
+  padding: 20px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 40px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff; // biały tekst
+  background-color: #000; // czarne tło
+}
+
+.timeline-item {
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+
+  &:last-child .timeline-line {
+    display: none;
+  }
+}
+
+.timeline-indicator {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+
+  svg {
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    padding: 4px;
+    color: #fff; // ikona też biała
+  }
+}
+
+.timeline-line {
+  width: 2px;
+  background-color: #555; // lekko jaśniejsza linia
+  flex-grow: 1;
+  margin-top: 4px;
+}
+
+.timeline-content {
+  flex: 1;
+
+  .timeline-date {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .timeline-title {
+    font-weight: 600;
+    margin: 0 0 5px 0;
+  }
+
+  .timeline-description {
+    margin: 0;
+  }
+}
