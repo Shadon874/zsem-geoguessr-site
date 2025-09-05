@@ -163,10 +163,10 @@ function App() {
             </div>
 
             <nav className="navigation">
-              <a onClick={() => navigate("/harmonogram")} href="#destinations">Harmonogram</a>
-              <a href="#tours">Regulamin</a>
-              <a href="#blog">Jak grać?</a>
-              <a href="#contact">Wyniki I Etapu</a>
+              <a href="harmonogram">Harmonogram</a>
+              <a href="">Regulamin</a>
+              <a href="guide">Jak grać?</a>
+              <a href="">Wyniki I Etapu</a>
               <a href="2024">Rok 2024</a>
             </nav>
           </header>
