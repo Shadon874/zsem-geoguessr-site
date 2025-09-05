@@ -1,0 +1,98 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.memories {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .sociale {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        align-items: flex-start;
+
+        .left, .right {
+            flex: 1 1 300px;
+        }
+
+        .left {
+    video {
+        width: auto;          // dopasowuje szerokość proporcjonalnie
+        height: 100vh;        // wypełnia całą wysokość ekranu
+        max-width: 100%;      // nie wychodzi poza ekran
+        object-fit: contain;  // całe video jest widoczne, bez przycinania
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+}
+
+
+        .right {
+            h3 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 1.5rem;
+            }
+
+            .social-links {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: #ccc;
+                    text-decoration: none;
+                    font-weight: 500;
+                    transition: color 0.2s ease;
+                    &:hover {
+                        color: #fff;
+                    }
+
+                    svg {
+                        stroke: #ccc;
+                        transition: stroke 0.2s ease;
+                    }
+
+                    &:hover svg {
+                        stroke: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .sociale {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
