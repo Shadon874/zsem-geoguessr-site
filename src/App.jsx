@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useInView } from "framer-motion";
-
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Stars } from "@react-three/drei";
@@ -67,8 +66,7 @@ function FadeInButton({ children, isEarthLoaded }) {
   );
 }
 
-function BackgroundScene({ earthScale = 10 }) {
-
+function BackgroundScene({ earthScale = 10, onLoaded }) {
   const [earthMap, bumpMap, cloudMap, galaxyMap] = useLoader(TextureLoader, [
     "./earth.jpg",
     "./earthbump.jpg",
@@ -85,6 +83,13 @@ function BackgroundScene({ earthScale = 10 }) {
     if (earthRef.current) earthRef.current.rotation.y -= 0.0015;
     if (cloudRef.current) cloudRef.current.rotation.y -= 0.001;
   });
+
+  // Notify parent that textures are loaded
+  React.useEffect(() => {
+    if (earthMap && bumpMap && cloudMap && galaxyMap) {
+      onLoaded();
+    }
+  }, [earthMap, bumpMap, cloudMap, galaxyMap, onLoaded]);
 
   return (
     <>
@@ -142,19 +147,32 @@ function App() {
   const destinationsRef = useRef(null);
   const [earthScale, setEarthScale] = useState(3);
   const [isEarthLoaded, setIsEarthLoaded] = useState(false);
+  const [canvasVisible, setCanvasVisible] = useState(false);
 
-  const navigator = useNavigate();
+  const handleEarthLoaded = () => {
+    setIsEarthLoaded(true);
+    // Start fade-in animation after textures are loaded
+    setTimeout(() => setCanvasVisible(true), 100);
+  };
 
   return (
     <div className="container">
-      <div className="canvas-container">
+      <motion.div 
+        className="canvas-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: canvasVisible ? 1 : 0 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      >
         <Canvas className="background-canvas" dpr={[1, 2]}>
           <Suspense fallback={null}>
             <BackgroundScene
               earthScale={earthScale}
+              onLoaded={handleEarthLoaded}
             />
           </Suspense>
         </Canvas>
+
+      </motion.div>
 
         <div className="header-container">
           <header className="header">
@@ -165,7 +183,6 @@ function App() {
             <nav className="navigation">
               <a href="harmonogram">Harmonogram</a>
               <a href="">Regulamin</a>
-              <a href="guide">Jak grać?</a>
               <a href="">Wyniki I Etapu</a>
               <a href="2024">Rok 2024</a>
             </nav>
@@ -174,13 +191,12 @@ function App() {
 
         <GradualSpacing
           text="Konkurs GeoGuessr ZSEM"
-          isEarthLoaded={true}
+          isEarthLoaded={isEarthLoaded}
         />
 
         <div className="read-more-wrapper">
-          <FadeInButton isEarthLoaded={true}>Read More</FadeInButton>
+          <FadeInButton isEarthLoaded={isEarthLoaded}>Read More</FadeInButton>
         </div>
-      </div>
 
       <footer className="footer">
         <div className="footer-section">
