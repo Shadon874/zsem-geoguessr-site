@@ -143,6 +143,8 @@ function App() {
   const [earthScale, setEarthScale] = useState(3);
   const [isEarthLoaded, setIsEarthLoaded] = useState(false);
 
+  const navigator = useNavigate();
+
   return (
     <div className="container">
       <div className="canvas-container">
@@ -160,10 +162,11 @@ function App() {
               <span>Geoguessr</span> ZSEM
             </div>
             <nav className="navigation">
-              <a href="#destinations">Harmonogram</a>
+              <a onClick={() => navigate("/harmonogram")} href="#destinations">Harmonogram</a>
               <a href="#tours">Regulamin</a>
               <a href="#blog">Jak grać?</a>
               <a href="#contact">Wyniki I Etapu</a>
+              <a href="2024">Rok 2024</a>
             </nav>
           </header>
         </div>
