@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { School, HandFist, Trophy } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./Timeline.scss";
+import galaxyIMG from "./galaxy.png";
 
 const items = [
   {
@@ -42,31 +43,59 @@ const itemVariants = {
 };
 
 export default function Timeline() {
+  const navigate = useNavigate();
+
   return (
-    <div className="timeline">
-      {items.map((item, index) => {
-        const Icon = item.icon;
-        return (
-          <motion.div
-            key={item.id}
-            className="timeline-item"
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            custom={index} // używamy index do delay
-          >
-            <div className="timeline-indicator">
-              <Icon size={20} />
-              {index < items.length - 1 && <span className="timeline-line" />}
-            </div>
-            <div className="timeline-content">
-              {item.date && <span className="timeline-date">{item.date}</span>}
-              <h3 className="timeline-title">{item.title}</h3>
-              <p className="timeline-description">{item.description}</p>
-            </div>
-          </motion.div>
-        );
-      })}
+
+    <div  style={{
+    backgroundImage: `url(${galaxyIMG})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    minHeight: "100vh",
+    paddingBottom: "50px",
+  }}>
+      <div className="header-container">
+        <header className="header">
+          <div onClick={() => navigate("/")} className="logo">
+            <span>Geoguessr</span> ZSEM
+          </div>
+
+          <nav className="navigation">
+            <a onClick={() => navigate("/harmonogram")}>Harmonogram</a>
+            <a href="#tours">Regulamin</a>
+            <a href="#blog">Jak grać?</a>
+            <a href="#contact">Wyniki I Etapu</a>
+            <a href="2024">Rok 2024</a>
+          </nav>
+        </header>
+      </div>
+
+      <div className="timeline">
+        <h1>Harmonogram</h1>
+        {items.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <motion.div
+              key={item.id}
+              className="timeline-item"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              custom={index} // używamy index do delay
+            >
+              <div className="timeline-indicator">
+                <Icon size={20} />
+                {index < items.length - 1 && <span className="timeline-line" />}
+              </div>
+              <div className="timeline-content">
+                {item.date && <span className="timeline-date">{item.date}</span>}
+                <h3 className="timeline-title">{item.title}</h3>
+                <p className="timeline-description">{item.description}</p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 }
