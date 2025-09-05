@@ -3,7 +3,7 @@ import "./App.scss";
 import {
   Instagram,
   Facebook,
-  Youtube,
+  Youtube, 
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useInView } from "framer-motion";
