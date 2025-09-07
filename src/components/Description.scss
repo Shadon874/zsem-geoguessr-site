@@ -1,0 +1,66 @@
+.description-container {
+  width: 800px; // stała szerokość
+  height: 250px; // stała wysokość
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000; // czarne tło
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  color: white; // cały tekst biały
+}
+
+.description-box {
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  p {
+    font-size: 1rem;
+    color: white;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .arrow {
+    cursor: pointer;
+    color: white;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+
+  .dots {
+    display: flex;
+    gap: 0.5rem;
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #555;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &.active {
+        width: 16px;
+        height: 16px;
+        background: #fff;
+      }
+    }
+  }
+}
