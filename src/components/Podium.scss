@@ -1,0 +1,72 @@
+.podium-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 50px 0;
+  height: 50vh;
+
+  .prices-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+
+    .price {
+      width: 100px;
+      max-width: 20vw;
+      background: white;
+      border-radius: 50px;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .bars-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    width: 100%;
+
+    .podium-element {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100px;
+      max-width: 20vw;
+
+      .podium-place {
+        width: 100%;
+        background: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        transform-origin: bottom; // tutaj transform-origin: bottom dla scaleY
+
+        .place {
+          margin-bottom: 5px;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+// Responsywność
+@media (max-width: 768px) {
+  .prices-row, .bars-row {
+    gap: 10px;
+  }
+  .podium-element, .price {
+    width: 80px;
+  }
+}
