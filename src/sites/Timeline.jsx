@@ -4,6 +4,8 @@ import { School, HandFist, Trophy } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./Timeline.scss";
 import galaxyIMG from "./galaxy.png";
+import TopBar from "../top-bar";
+import Foot from "../footer";
 
 const items = [
   {
@@ -52,23 +54,9 @@ export default function Timeline() {
     backgroundSize: "cover",
     backgroundPosition: "center",
     minHeight: "100vh",
-    paddingBottom: "50px",
+    padding: 0,
   }}>
-      <div className="header-container">
-        <header className="header">
-          <div onClick={() => navigate("/")} className="logo">
-            <span>Geoguessr</span> ZSEM
-          </div>
-
-          <nav className="navigation">
-            <a onClick={() => navigate("/harmonogram")}>Harmonogram</a>
-            <a href="#tours">Regulamin</a>
-            <a href="#blog">Jak grać?</a>
-            <a href="#contact">Wyniki I Etapu</a>
-            <a href="2024">Rok 2024</a>
-          </nav>
-        </header>
-      </div>
+      <TopBar />
 
       <div className="timeline">
         <h1>Harmonogram</h1>
@@ -96,6 +84,7 @@ export default function Timeline() {
           );
         })}
       </div>
+      <Foot />
     </div>
   );
 }
