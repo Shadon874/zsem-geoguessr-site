@@ -1,33 +1,94 @@
 import { motion } from "framer-motion";
-import { Element } from "react-scroll";
+import { MapPin } from "lucide-react";
+
 import "./ReadMore.scss";
+import section1IMG from "./section1.jpg";
+import section2IMG from "./section2.jpg"
+import Description from "../components/Description";
+import Podium from "../components/Podium";
 
 export default function ReadMore() {
-  const sections = [
-    { id: "section1", title: "Lokalizacja", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { id: "section2", title: "O grze", text: "Curabitur nec justo vitae nisl tempor ultricies." },
-    { id: "section3", title: "Postacie", text: "Duis sit amet mi nec neque pulvinar fermentum." },
-    { id: "section4", title: "Fabuła", text: "Integer ac justo nec libero luctus vestibulum." },
-  ];
-
   return (
-    <div className="readmore-container">
-      {sections.map((sec, index) => (
-        <Element key={sec.id} name={sec.id}>
-          <motion.section
-            className={`section ${index % 2 === 0 ? "left" : "right"}`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+    <>
+    <section className="section" id="section1">
+      <motion.div className="image-container"
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{duration: 0.5}}
+      >
+        <img src={section1IMG} className="banner" alt="lokalizacja"/>
+        <motion.h1
+            initial={{y: 20, opacity: 0}}
+            animate={{y: 0, opacity: 1}}
+            transition={{duration: 0.5}}
+        >
+            Lokalizacja <MapPin size={40}/>
+        </motion.h1>
+      </motion.div>
+
+      <div className="location">
+        <div className="steps">
+          <motion.div className="step"
+            initial={{x: -20, opacity: 0}}
+            animate={{x: 0, opacity: 1}}
+            transition={{duration: 0.5, delay: 0.3}}
           >
-            <div className="content">
-              <h1>{sec.title}</h1>
-              <p>{sec.text}</p>
+            <div className="circle">1</div>
+            <div className="line"></div>
+            <div className="step-content">
+              <h2>Lokalizacja eliminacji szkolnych</h2>
+              <p>Eliminacje odbędą się na terenach poszczególnych szkół, więcej informacji podadzą szkoły prowadzące eliminacje</p>
             </div>
-          </motion.section>
-        </Element>
-      ))}
-    </div>
+          </motion.div>
+         <motion.div className="step"
+            initial={{x: -20, opacity: 0}}
+            animate={{x: 0, opacity: 1}}
+            transition={{duration: 0.5, delay: 0.6}}
+          >
+            <div className="circle">2</div>
+            <div className="line"></div>
+            <div className="step-content">
+              <h2>Lokalizacja drugiej tury</h2>
+              <p>Druga tura odbędzie się w <b>Technikum Elektryczno-Mechanicznym (ZSEM)</b></p>
+            </div>
+          </motion.div>
+           <motion.div className="step"
+            initial={{x: -20, opacity: 0}}
+            animate={{x: 0, opacity: 1}}
+            transition={{duration: 0.5, delay: 0.9}}
+          >
+            <div className="circle">3</div>
+            <div className="step-content">
+              <h2>Lokalizacja finałów</h2>
+              <p>Finały zawodów geoguessr'a odbędą się w <b>Wyższej Szkole Biznesu</b> w Nowym Sączu</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+    <section className="section" id="section2">
+        <motion.div className="image-container"
+        initial={{opacity: 0}}
+        whileInView={{opacity: 1}}
+        transition={{duration: 0.5}}
+      >
+        <img src={section2IMG} className="banner" alt="lokalizacja"/>
+        <motion.h1
+            initial={{y: 20, opacity: 0}}
+            whileInView={{y: 0, opacity: 1}}
+            transition={{duration: 0.5}}
+        >
+            Forma i przebieg gry <MapPin size={40}/>
+        </motion.h1>
+      </motion.div>
+
+      <div className="przebieg">
+        <Description />
+      </div>
+    </section>
+    <section className="section">
+        <Podium/>
+    </section>
+    </>
   );
 }
