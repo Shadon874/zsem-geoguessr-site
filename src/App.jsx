@@ -10,6 +10,8 @@ import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Stars } from "@react-three/drei";
+import Foot from "./footer.jsx";
+import TopBar from "./top-bar.jsx";
 
 function Loader() {
   return (
@@ -157,7 +159,9 @@ function App() {
 
   return (
     <div className="container">
-      <motion.div 
+      <TopBar />
+
+      <motion.div
         className="canvas-container"
         initial={{ opacity: 0 }}
         animate={{ opacity: canvasVisible ? 1 : 0 }}
@@ -174,54 +178,17 @@ function App() {
 
       </motion.div>
 
-        <div className="header-container">
-          <header className="header">
-            <div onClick={() => navigate("/")} className="logo">
-              <span>Geoguessr</span> ZSEM
-            </div>
+      <GradualSpacing
+        text="Konkurs GeoGuessr ZSEM"
+        isEarthLoaded={isEarthLoaded}
+      />
 
-            <nav className="navigation">
-              <a href="harmonogram">Harmonogram</a>
-              <a href="">Regulamin</a>
-              <a href="">Wyniki I Etapu</a>
-              <a href="2024">Rok 2024</a>
-            </nav>
-          </header>
-        </div>
+      <div className="read-more-wrapper">
+        <FadeInButton isEarthLoaded={isEarthLoaded}>Read More</FadeInButton>
+      </div>
 
-        <GradualSpacing
-          text="Konkurs GeoGuessr ZSEM"
-          isEarthLoaded={isEarthLoaded}
-        />
+      <Foot />
 
-        <div className="read-more-wrapper">
-          <FadeInButton isEarthLoaded={isEarthLoaded}>Read More</FadeInButton>
-        </div>
-
-      <footer className="footer">
-        <div className="footer-section">
-          <h3>O nas</h3>
-          <p>
-            Konkurs międzyszkolny GeoGuessr organizowany przez Zespół Szkół
-            Elektro-Mechanicznych to wyjątkowa okazja, by połączyć zabawę z
-            nauką geografii.
-          </p>
-        </div>
-        <div className="footer-section">
-          <h3>Linki</h3>
-          <a href="https://zsem.edu.pl">Strona ZSEM</a>
-          <a href="#tours">Support</a>
-          <a href="#blog">Blog</a>
-        </div>
-        <div className="footer-section">
-          <h3>Bądź na bierząco</h3>
-          <div className="social-icons">
-            <Instagram size={20} />
-            <Facebook size={20} />
-            <Youtube size={20} />
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
