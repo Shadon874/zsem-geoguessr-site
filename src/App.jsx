@@ -8,18 +8,14 @@ import {
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three";
-import { Stars } from "@react-three/drei";
+import { TextureLoader, LinearMipMapLinearFilter } from "three";
+import { Stars, useProgress, Html } from "@react-three/drei";
 import Foot from "./footer.jsx";
 import TopBar from "./top-bar.jsx";
 
 function Loader() {
-  return (
-    <div className="earth-loader">
-      <div className="spinner"></div>
-      <p>Ładowanie Ziemi...</p>
-    </div>
-  );
+  const { active, progress } = useProgress();
+  return active ? <Html center>{progress.toFixed(0)} %</Html> : null;
 }
 
 function GradualSpacing({ text = "Konkurs GeoGuessr ZSEM", isEarthLoaded }) {
@@ -54,7 +50,7 @@ function FadeInButton({ children, isEarthLoaded }) {
   const isInView = useInView(ref, { once: true });
 
   const shouldAnimate = isInView && isEarthLoaded;
-
+  
   return (
     <motion.button
       ref={ref}
@@ -70,18 +66,20 @@ function FadeInButton({ children, isEarthLoaded }) {
 
 function BackgroundScene({ earthScale = 10, onLoaded }) {
   const [earthMap, bumpMap, cloudMap, galaxyMap] = useLoader(TextureLoader, [
-    "./earth.jpg",
+    "./earth.webp",
     "./earthbump.jpg",
-    "./earthCloud.png",
-    "./galaxy.png"
+    "./earthCloud.webp",
+    "./galaxy.webp"
   ]);
 
   const earthRef = useRef();
   const cloudRef = useRef();
   const galaxyRef = useRef();
 
+  earthMap.generateMipmaps = true;
+  earthMap.minFilter = LinearMipMapLinearFilter;
+
   useFrame(() => {
-    if (galaxyRef.current) galaxyRef.current.rotation.y -= 0.002;
     if (earthRef.current) earthRef.current.rotation.y -= 0.0015;
     if (cloudRef.current) cloudRef.current.rotation.y -= 0.001;
   });
@@ -113,12 +111,12 @@ function BackgroundScene({ earthScale = 10, onLoaded }) {
       <pointLight position={[2, 1, 2]} intensity={0.5} distance={10} />
 
       <mesh ref={galaxyRef}>
-        <sphereGeometry args={[80, 64, 64]} />
+        <sphereGeometry args={[80, 32, 32]} />
         <meshBasicMaterial map={galaxyMap} side={2} transparent opacity={0.8} />
       </mesh>
 
       <mesh ref={earthRef} position={[0, 0, 0]} scale={[earthScale, earthScale, earthScale]}>
-        <sphereGeometry args={[0.6, 64, 64]} />
+        <sphereGeometry args={[0.6, 32, 32]} />
         <meshStandardMaterial
           map={earthMap}
           bumpMap={bumpMap}
@@ -129,7 +127,7 @@ function BackgroundScene({ earthScale = 10, onLoaded }) {
       </mesh>
 
       <mesh ref={cloudRef} scale={[earthScale, earthScale, earthScale]}>
-        <sphereGeometry args={[0.63, 64, 64]} />
+        <sphereGeometry args={[0.63, 32, 32]} />
         <meshStandardMaterial
           map={cloudMap}
           transparent
@@ -139,7 +137,7 @@ function BackgroundScene({ earthScale = 10, onLoaded }) {
         />
       </mesh>
 
-      <Stars radius={100} depth={50} count={3000} factor={2} saturation={0} fade speed={0.5} />
+      <Stars radius={100} depth={50} count={1000} factor={1} saturation={0} fade speed={0.5} />
     </>
   );
 }
@@ -167,7 +165,7 @@ function App() {
         animate={{ opacity: canvasVisible ? 1 : 0 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       >
-        <Canvas className="background-canvas" dpr={[1, 2]}>
+        <Canvas className="background-canvas" dpr={1} shadows={false}>
           <Suspense fallback={null}>
             <BackgroundScene
               earthScale={earthScale}

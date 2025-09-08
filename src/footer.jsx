@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.scss";
 import { Instagram, Facebook, Youtube } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Foot() {
   return (
-    <footer className="footer">
+    <motion.footer className="footer"
+    initial={{opacity: 0}}
+      whileInView={{opacity: 1, y: 20}}
+      transition={{duration: 0.5, y: 0}}
+    >
       <div className="main-footer">
         <div className="footer-section">
           <h3>O nas</h3>
@@ -33,6 +38,6 @@ export default function Foot() {
         <img src="../zsem.png" alt="zsem" />
         <img className="stow" src="../stow.png" alt="stowarzyszenie sądecki elektryk" />
       </div>
-    </footer>
+    </motion.footer>
   );
 }

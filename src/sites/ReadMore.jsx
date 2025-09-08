@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, Gamepad2 } from "lucide-react";
 
 import "./ReadMore.scss";
 import section1IMG from "./section1.jpg";
@@ -7,9 +7,13 @@ import section2IMG from "./section2.jpg"
 import Description from "../components/Description";
 import Podium from "../components/Podium";
 
+import TopBar from "../top-bar";
+import Foot from "../footer";
+
 export default function ReadMore() {
   return (
-    <>
+    <div className="more-container">
+    <TopBar/>
     <section className="section" id="section1">
       <motion.div className="image-container"
         initial={{opacity: 0}}
@@ -78,7 +82,7 @@ export default function ReadMore() {
             whileInView={{y: 0, opacity: 1}}
             transition={{duration: 0.5}}
         >
-            Forma i przebieg gry <MapPin size={40}/>
+            Forma i przebieg gry <Gamepad2 size={40}/>
         </motion.h1>
       </motion.div>
 
@@ -89,6 +93,7 @@ export default function ReadMore() {
     <section className="section">
         <Podium/>
     </section>
-    </>
+    <Foot />
+    </div>
   );
 }
