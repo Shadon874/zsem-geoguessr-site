@@ -1,0 +1,113 @@
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$background-color: #000000;
+$text-color: #ffffff;
+$button-bg: rgba(255, 255, 255, 0.9);
+$button-hover-bg: rgba(255, 255, 255, 0.95);
+$font-family: 'Poppins', 'Arial', sans-serif;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 768px) { @content; }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 1024px) { @content; }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 1025px) { @content; }
+  }
+}
+
+.footer {
+  padding: 60px 40px 0;
+  backdrop-filter: blur(1px);
+  color: $primary-color;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include respond-to(phone) {
+    padding: 40px 20px 0;
+  }
+
+  .main-footer {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+
+    @include respond-to(phone) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 30px;
+    }
+
+    .footer-section {
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #ccc;
+      }
+
+      a {
+        display: block;
+        color: #ccc;
+        text-decoration: none;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+
+        @include respond-to(phone) {
+          justify-content: center;
+        }
+
+        svg {
+          cursor: pointer;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+
+  .sponsors {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+
+    img {
+      height: 100px;
+      object-fit: contain;
+      max-width: 100%;
+
+      @include respond-to(phone) {
+        height: 80px;
+      }
+    }
+
+    .stow {
+      height: 200px;
+
+      @include respond-to(phone) {
+        height: 150px;
+      }
+    }
+  }
+}

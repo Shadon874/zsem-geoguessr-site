@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.scss";
+import "./footer.scss";
 import { Instagram, Facebook, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
 

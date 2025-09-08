@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.scss";
+import "./top-bar.scss";
 import { useNavigate } from "react-router-dom";
 import ScrollToTop from "./scroll-fix";
 
@@ -15,7 +15,7 @@ export default function TopBar() {
                 </div>
                 <nav className="navigation">
                     <a onClick={() => navigate("/harmonogram")}>Harmonogram</a>
-                    <a onClick={() => navigate("/regulamin.pdf")}>Regulamin</a>
+                    <a href="/regulamin.pdf">Regulamin</a>
                     <a onClick={() => navigate("/wyniki")}>Wyniki I Etapu</a>
                     <a onClick={() => navigate("/2024")}>Rok 2024</a>
                 </nav>

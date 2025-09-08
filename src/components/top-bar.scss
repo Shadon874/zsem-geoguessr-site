@@ -1,0 +1,115 @@
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$background-color: #000000;
+$text-color: #ffffff;
+$button-bg: rgba(255, 255, 255, 0.9);
+$button-hover-bg: rgba(255, 255, 255, 0.95);
+$font-family: 'Poppins', 'Arial', sans-serif;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 768px) { @content; }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 1024px) { @content; }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 1025px) { @content; }
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+    background: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    z-index: 10;
+    position: fixed;
+    top: 1.5rem;
+    transition: all 0.3s ease;
+    max-height: 10vh;
+    width: 90%;
+    max-width: 1200px;
+
+    @include respond-to(phone) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: $primary-color;
+      margin-right: 75px;
+      cursor: pointer;
+      white-space: nowrap;
+
+      @include respond-to(phone) {
+        margin-right: 0;
+        font-size: 24px;
+      }
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include respond-to(phone) {
+      width: 100%;
+    }
+
+    a {
+      position: relative;
+      margin: 0 15px;
+      text-decoration: none;
+      color: $primary-color;
+      transition: color 0.3s ease;
+      max-height: 10vh;
+      cursor: pointer;
+      white-space: nowrap;
+
+      @include respond-to(phone) {
+        margin: 0 10px;
+        font-size: 14px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: $primary-color;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
