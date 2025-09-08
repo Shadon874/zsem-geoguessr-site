@@ -11,8 +11,8 @@ import galaxyIMG from "./galaxy.png"
 import Description from "../components/Description";
 import Podium from "../components/Podium";
 
-import TopBar from "../top-bar";
-import Foot from "../footer";
+import TopBar from "../components/top-bar";
+import Foot from "../components/footer";
 
 export default function ReadMore() {
   return (

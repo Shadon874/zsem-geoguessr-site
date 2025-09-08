@@ -10,8 +10,8 @@ import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader, LinearMipMapLinearFilter } from "three";
 import { Stars, useProgress, Html } from "@react-three/drei";
-import Foot from "./footer.jsx";
-import TopBar from "./top-bar.jsx";
+import Foot from "./components/footer.jsx";
+import TopBar from "./components/top-bar.jsx";
 
 function Loader() {
   const { active, progress } = useProgress();
@@ -179,7 +179,7 @@ function App() {
         isEarthLoaded={isEarthLoaded}
       />
 
-      <div className="read-more-wrapper">
+      <div className="read-more-wrapper" onClick={() => {navigate("/more");}}>
         <FadeInButton isEarthLoaded={isEarthLoaded}>Read More</FadeInButton>
       </div>
 

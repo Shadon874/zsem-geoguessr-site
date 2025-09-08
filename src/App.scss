@@ -39,7 +39,7 @@ body {
 
 .canvas-container {
   position: relative;
-  height: 120vh;
+  height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -57,7 +57,7 @@ body {
 
 .gradual-spacing {
   position: absolute;
-  top: 50%;
+  top: 40%;
   right: 5%;
   transform: translateY(-50%);
   display: flex;
@@ -87,7 +87,7 @@ body {
 
 .read-more-wrapper {
   position: absolute;
-  top: calc(50% + 5rem);
+  top: calc(40% + 5rem);
   right: 5%;
   transform: translateY(-50%);
   z-index: 5;

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
-import Foot from '../footer';
-import TopBar from '../top-bar';
+import Foot from '../components/footer';
+import TopBar from '../components/top-bar';
 import galaxyIMG from "./galaxy.png";
 import "./2024.scss"
 

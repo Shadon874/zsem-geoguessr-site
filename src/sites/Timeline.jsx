@@ -4,8 +4,8 @@ import { School, HandFist, Trophy } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./Timeline.scss";
 import galaxyIMG from "./galaxy.png";
-import TopBar from "../top-bar";
-import Foot from "../footer";
+import TopBar from "../components/top-bar";
+import Foot from "../components/footer";
 
 const items = [
   {
