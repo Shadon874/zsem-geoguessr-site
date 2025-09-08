@@ -1,32 +1,57 @@
+// Variables for consistent theming
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$background-color: #000000;
+$text-color: #ffffff;
+$button-bg: rgba(255, 255, 255, 0.9);
+$button-hover-bg: rgba(255, 255, 255, 0.95);
+$font-family: 'Poppins', 'Arial', sans-serif;
+
+// Mixins for responsive design
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 768px) { @content; }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 1024px) { @content; }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 1025px) { @content; }
+  }
+}
+
+// Base styles
 body {
-  background-color: #000000;
+  background-color: $background-color;
   margin: 0;
+  font-family: $font-family;
+  overflow-x: hidden;
 }
 
 .container {
-  font-family: 'Poppins', 'Arial', sans-serif;
-  max-width: 2000px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   padding: 0;
   user-select: none;
+}
 
-  .canvas-container {
-    position: relative;
-    height: 120vh;
+.canvas-container {
+  position: relative;
+  height: 120vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .background-canvas {
+    width: 100%;
+    height: 100%;
+    background-color: $background-color;
     margin: 0;
-    padding: 0;
-
-    .background-canvas {
-      width: 100%;
-      height: 100%;
-      background-color: rgb(0, 0, 0);
-      margin: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -39,6 +64,13 @@ body {
   justify-content: center;
   flex-wrap: nowrap;
   z-index: 5;
+
+  @include respond-to(phone) {
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .gradual-char {
@@ -46,7 +78,11 @@ body {
   font-size: 4rem;
   font-weight: bold;
   letter-spacing: -0.05em;
-  color: white;
+  color: $text-color;
+
+  @include respond-to(phone) {
+    font-size: 2.5rem;
+  }
 }
 
 .read-more-wrapper {
@@ -55,13 +91,18 @@ body {
   right: 5%;
   transform: translateY(-50%);
   z-index: 5;
+
+  @include respond-to(phone) {
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
 }
 
 .read-more {
   padding: 12px 28px;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #000000;
+  background: $button-bg;
+  color: $secondary-color;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -69,51 +110,19 @@ body {
   outline: none;
   backdrop-filter: blur(10px);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow:
-    0 4px 15px rgba(0, 0, 0, 0.1),
-    0 1px 3px rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1),
+              0 1px 3px rgba(255, 255, 255, 0.2) inset;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow:
-      0 7px 20px rgba(0, 0, 0, 0.2),
-      0 2px 5px rgba(255, 255, 255, 0.3) inset;
+    background: $button-hover-bg;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2),
+                0 2px 5px rgba(255, 255, 255, 0.3) inset;
   }
 
   &:active {
     transform: scale(0.98);
-    box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.15),
-      0 1px 2px rgba(255, 255, 255, 0.2) inset;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .footer {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .gradual-spacing {
-    right: 50%;
-    transform: translate(50%, -50%);
-    width: 100%;
-    justify-content: center;
-  }
-
-  .gradual-char {
-    font-size: 2.5rem;
-  }
-
-  .read-more-wrapper {
-    right: 50%;
-    transform: translate(50%, -50%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15),
+                0 1px 2px rgba(255, 255, 255, 0.2) inset;
   }
 }
 
@@ -134,17 +143,32 @@ body {
     border-radius: 50px;
     z-index: 10;
     position: fixed;
-    top: 0;
+    top: 1.5rem;
     transition: all 0.3s ease;
     max-height: 10vh;
+    width: 90%;
+    max-width: 1200px;
+
+    @include respond-to(phone) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      padding: 15px 20px;
+    }
 
     .logo {
       font-size: 28px;
       font-weight: 400;
       letter-spacing: 1px;
-      color: #ffffff;
+      color: $primary-color;
       margin-right: 75px;
       cursor: pointer;
+      white-space: nowrap;
+
+      @include respond-to(phone) {
+        margin-right: 0;
+        font-size: 24px;
+      }
 
       span {
         font-weight: 700;
@@ -152,31 +176,47 @@ body {
     }
   }
 
-  .navigation a {
-    position: relative;
-    margin: 0 15px;
-    text-decoration: none;
-    color: #ffffff;
-    transition: color 0.3s ease;
-    max-height: 10vh;
-    cursor: pointer;
+  .navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #ffffff;
-      transition: width 0.3s ease;
+    @include respond-to(phone) {
+      width: 100%;
     }
 
-    &:hover {
-      color: #ffffff;
+    a {
+      position: relative;
+      margin: 0 15px;
+      text-decoration: none;
+      color: $primary-color;
+      transition: color 0.3s ease;
+      max-height: 10vh;
+      cursor: pointer;
+      white-space: nowrap;
+
+      @include respond-to(phone) {
+        margin: 0 10px;
+        font-size: 14px;
+      }
 
       &::after {
-        width: 100%;
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: $primary-color;
+
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
@@ -185,16 +225,26 @@ body {
 .footer {
   padding: 60px 40px 0;
   backdrop-filter: blur(1px);
-  color: white;
+  color: $primary-color;
   position: relative;
   width: 100%;
   box-sizing: border-box;
+
+  @include respond-to(phone) {
+    padding: 40px 20px 0;
+  }
 
   .main-footer {
     margin-bottom: 60px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
+
+    @include respond-to(phone) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 30px;
+    }
 
     .footer-section {
       h3 {
@@ -213,13 +263,18 @@ body {
         transition: color 0.3s ease;
 
         &:hover {
-          color: white;
+          color: $primary-color;
         }
       }
 
       .social-icons {
         display: flex;
         gap: 15px;
+        justify-content: center;
+
+        @include respond-to(phone) {
+          justify-content: center;
+        }
 
         svg {
           cursor: pointer;
@@ -233,21 +288,40 @@ body {
     }
   }
 
-
   .sponsors {
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
     align-items: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 
     img {
       height: 100px;
       object-fit: contain;
+      max-width: 100%;
+
+      @include respond-to(phone) {
+        height: 80px;
+      }
     }
 
     .stow {
       height: 200px;
+
+      @include respond-to(phone) {
+        height: 150px;
+      }
     }
   }
+}
+
+// Canvas animation styles
+.canvas-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
