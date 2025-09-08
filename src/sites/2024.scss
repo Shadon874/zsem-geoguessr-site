@@ -1,97 +1,170 @@
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
 body {
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .memories {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 1200px;
+  margin: 5rem auto 0;
+  padding: 2rem;
 
-    h1 {
-        text-align: center;
-        font-size: 3rem;
-        margin: 5rem 0;
-        color: #fff;
-        font-weight: 700;
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin: 5rem 0;
+    color: #fff;
+    font-weight: 700;
+
+    @include respond-to(phone) {
+      font-size: 1.5rem; // added missing unit
+      margin: 3rem 0;
     }
 
-    .sociale {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: center;
-        align-items: flex-start;
+    @include respond-to(tablet) {
+      font-size: 2rem;
+      margin: 4rem 0;
+    }
+  }
 
-        .left, .right {
-            flex: 1 1 300px;
-        }
+  .sociale {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
 
-        .left {
-    video {
-        width: auto;          // dopasowuje szerokość proporcjonalnie
-        height: 80vh;        // wypełnia całą wysokość ekranu
-        max-width: 100%;      // nie wychodzi poza ekran
-        object-fit: contain;  // całe video jest widoczne, bez przycinania
+    .left,
+    .right {
+      flex: 1 1 300px;
+    }
+
+    .left {
+      video {
+        width: auto;
+        height: 80vh;
+        max-width: 100%;
+        object-fit: contain;
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
         transition: transform 0.3s ease;
 
         &:hover {
-            transform: scale(1.03);
+          transform: scale(1.03);
         }
-    }
-}
 
-
-        .right {
-            h3 {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-
-            p {
-                font-size: 1rem;
-                line-height: 1.5;
-                margin-bottom: 1.5rem;
-            }
-
-            .social-links {
-                display: flex;
-                flex-direction: column;
-                gap: 0.8rem;
-
-                a {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    color: #ccc;
-                    text-decoration: none;
-                    font-weight: 500;
-                    transition: color 0.2s ease;
-                    &:hover {
-                        color: #fff;
-                    }
-
-                    svg {
-                        stroke: #ccc;
-                        transition: stroke 0.2s ease;
-                    }
-
-                    &:hover svg {
-                        stroke: #fff;
-                    }
-                }
-            }
+        @include respond-to(phone) {
+          height: 50vh;
         }
+
+        @include respond-to(tablet) {
+          height: 60vh;
+        }
+      }
     }
 
-    @media (max-width: 768px) {
-        .sociale {
-            flex-direction: column;
-            align-items: center;
+    .right {
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+
+        @include respond-to(phone) {
+          font-size: 1.2rem;
+          text-align: center;
         }
+
+        @include respond-to(tablet) {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+
+        @include respond-to(phone) {
+          font-size: 0.9rem;
+          text-align: center;
+        }
+
+        @include respond-to(tablet) {
+          font-size: 0.95rem;
+          text-align: center;
+        }
+      }
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
+
+        @include respond-to(phone) {
+          align-items: center;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #ccc;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #fff;
+          }
+
+          svg {
+            stroke: #ccc;
+            transition: stroke 0.2s ease;
+          }
+
+          &:hover svg {
+            stroke: #fff;
+          }
+        }
+      }
     }
+  }
+
+  // Mobile layout
+  @include respond-to(phone) {
+    .sociale {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @include respond-to(tablet) {
+    .sociale {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }

@@ -20,6 +20,7 @@ export default function ReadMore() {
       backgroundImage: `url(${galaxyIMG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
           minHeight: "100vh",
           padding: 0,
     }}>
