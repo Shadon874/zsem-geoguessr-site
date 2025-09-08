@@ -7,14 +7,22 @@ $button-hover-bg: rgba(255, 255, 255, 0.95);
 $font-family: 'Poppins', 'Arial', sans-serif;
 
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == phone {
-    @media (max-width: 768px) { @content; }
+  @if $breakpoint ==phone {
+    @media (max-width: 768px) {
+      @content;
+    }
   }
-  @if $breakpoint == tablet {
-    @media (max-width: 1024px) { @content; }
+
+  @if $breakpoint ==tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
   }
-  @if $breakpoint == desktop {
-    @media (min-width: 1025px) { @content; }
+
+  @if $breakpoint ==desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
   }
 }
 
@@ -112,36 +120,41 @@ $font-family: 'Poppins', 'Arial', sans-serif;
   }
 
   .dropdown {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 30%;
-    width: 3px;
-    background: white;
-  }
-
-  a {
     position: relative;
-    padding-left: 1.5rem;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
 
-    &::before {
-      content: "";
-      position: absolute;
-      width: 1rem;
-      height: 3px;
-      background: #ffffff;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
+    @include respond-to(desktop) {
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 30%;
+        width: 3px;
+        background: white;
+      }
     }
-  }
+
+    a {
+      position: relative;
+      cursor: pointer;
+
+      @include respond-to(desktop) {
+        padding-left: 1.5rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 1rem;
+          height: 3px;
+          background: #ffffff;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+    }
 
   }
 }
