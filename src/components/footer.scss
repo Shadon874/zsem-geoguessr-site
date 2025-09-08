@@ -110,4 +110,38 @@ $font-family: 'Poppins', 'Arial', sans-serif;
       }
     }
   }
+
+  .dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 30%;
+    width: 3px;
+    background: white;
+  }
+
+  a {
+    position: relative;
+    padding-left: 1.5rem;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 3px;
+      background: #ffffff;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  }
 }
