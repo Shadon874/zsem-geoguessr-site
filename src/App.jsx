@@ -48,9 +48,7 @@ function GradualSpacing({ text = "Konkurs GeoGuessr ZSEM", isEarthLoaded }) {
 function FadeInButton({ children, isEarthLoaded }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  const shouldAnimate = isInView && isEarthLoaded;
-  
+  const shouldAnimate = isInView && isEarthLoaded;  
   return (
     <motion.button
       ref={ref}

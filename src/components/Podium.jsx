@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 const podiumData = [
     { place: 2, price: "50zł", height: 120 },
-    { place: 1, price: "50zł", height: 150 },
-    { place: 3, price: "50zł", height: 100 },
+    { place: 1, price: "100zł", height: 150 },
+    { place: 3, price: "20zł", height: 100 },
 ];
 
 export default function Podium() {
