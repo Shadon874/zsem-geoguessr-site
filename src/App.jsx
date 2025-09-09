@@ -8,10 +8,12 @@ import {
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader, LinearMipMapLinearFilter } from "three";
+import { TextureLoader, LinearMipMapLinearFilter, Cache } from "three";
 import { Stars, useProgress, Html } from "@react-three/drei";
 import Foot from "./components/footer.jsx";
 import TopBar from "./components/top-bar.jsx";
+
+Cache.enabled = true;
 
 function Loader() {
   const { active, progress } = useProgress();
