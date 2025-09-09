@@ -1,3 +1,23 @@
+@mixin respond-to($breakpoint) {
+  @if $breakpoint ==phone {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
 .description-container {
   width: 800px; // stała szerokość
   height: 250px; // stała wysokość
@@ -26,6 +46,12 @@
   p {
     font-size: 1rem;
     color: white;
+    text-align: center;
+
+    @include respond-to(phone) {
+      max-width: 80vw;
+      margin: 0 auto;
+    }
   }
 }
 

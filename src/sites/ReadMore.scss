@@ -1,3 +1,23 @@
+@mixin respond-to($breakpoint) {
+  @if $breakpoint ==phone {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
 .more-container {
   margin-top: 5rem;
   padding: 3rem;
@@ -131,4 +151,8 @@
   .link {
     transform: translate(-50%, 20%);
   }
+
+  @include respond-to(phone) {
+      max-width: 80vw;
+    }
 }

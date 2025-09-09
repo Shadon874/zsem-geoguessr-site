@@ -182,7 +182,7 @@ function App() {
       />
 
       <div className="read-more-wrapper" onClick={() => {navigate("/more");}}>
-        <FadeInButton isEarthLoaded={isEarthLoaded}>Read More</FadeInButton>
+        <FadeInButton isEarthLoaded={isEarthLoaded}>Dowiedz się więcej</FadeInButton>
       </div>
 
       <Foot />
