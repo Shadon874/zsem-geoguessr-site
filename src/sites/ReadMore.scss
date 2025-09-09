@@ -63,6 +63,7 @@
   max-width: 1200px;
   display: flex;
   justify-content: center;
+  margin: 4rem 0;
 }
 
 .steps {
@@ -107,4 +108,23 @@
 .step-content {
   flex: 1;
   margin-left: 5rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 4rem 0;
+
+  a {
+    text-decoration: none;
+    color: #007bff; // niebieski kolor linków
+    font-size: 1.2rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #0056b3; // ciemniejszy niebieski na hover
+    }
+  }
 }

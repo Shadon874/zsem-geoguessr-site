@@ -16,7 +16,7 @@ export default function TopBar() {
                 <nav className="navigation">
                     <a onClick={() => navigate("/harmonogram")}>Harmonogram</a>
                     <a href="/regulamin.pdf">Regulamin</a>
-                    <a onClick={() => navigate("/wyniki")}>Wyniki I Etapu</a>
+                    <a onClick={() => navigate("/wyniki")}>Wyniki II Etapu</a>
                     <a onClick={() => navigate("/2024")}>Rok 2024</a>
                 </nav>
             </header>

@@ -45,8 +45,8 @@ export default function Rok2024() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h3>Zobacz jak się wtedy bawiliśmy</h3>
-                        <p>Filmik i zdjęcia z tego wydarzenia można obejrzeć na Instagramie ZSEMTV</p>
+                        <h3>Zobacz jak się wtedy bawiliśmy!</h3>
+                        <p>Filmik i zdjęcia z tego wydarzenia można obejrzeć na Instagramie ZSEMTV.</p>
                         <div className="social-links">
                             <a href="https://www.instagram.com/zsemns/"><Instagram size={18} /> Instagram Elektryka</a>
                             <a href="https://www.instagram.com/zsemtv/"><Instagram size={18} /> Instagram ZSEM TV</a>

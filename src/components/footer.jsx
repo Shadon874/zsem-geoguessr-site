@@ -75,7 +75,7 @@ export default function Foot() {
         </div>
 
         <div className="footer-section">
-          <h3>Bądź na bierząco</h3>
+          <h3>Bądź na bieżąco</h3>
           <div className="social-icons">
             <Instagram size={20} />
             <Facebook size={20} />
