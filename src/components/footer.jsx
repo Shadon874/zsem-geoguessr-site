@@ -12,7 +12,7 @@ export default function Foot() {
       transition: {
         duration: 0.3,
         staggerChildren: 0.1,
-        staggerDirection: 1, 
+        staggerDirection: 1,
       },
     },
     closed: {
@@ -20,7 +20,7 @@ export default function Foot() {
       transition: {
         duration: 0.3,
         staggerChildren: 0.1,
-        staggerDirection: -1, 
+        staggerDirection: -1,
       },
     },
   };
@@ -50,9 +50,7 @@ export default function Foot() {
         <div className="footer-section">
           <h3>Linki</h3>
           <a href="https://zsem.edu.pl">Strona ZSEM</a>
-          <a href="#tours">Support</a>
-          <a href="#blog">Blog</a>
-
+          <a onClick={()=> {alert("Mamy za dobrych programistów by były jakieś problemy. Supportu nie ma")}}>Support</a>
           <div className="github-links">
             <a onClick={() => setIsDropdownVisible((prev) => !prev)}>
               Github
@@ -77,9 +75,15 @@ export default function Foot() {
         <div className="footer-section">
           <h3>Bądź na bieżąco</h3>
           <div className="social-icons">
-            <Instagram size={20} />
-            <Facebook size={20} />
-            <Youtube size={20} />
+            <a href="https://www.instagram.com/zsemtv/" target="_blank" rel="noopener noreferrer">
+              <Instagram size={20} />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100063594517495" target="_blank" rel="noopener noreferrer">
+              <Facebook size={20} />
+            </a>
+            <a href="https://www.youtube.com/@ZSEMTVOFFICIAL" target="_blank" rel="noopener noreferrer">
+              <Youtube size={20} />
+            </a>
           </div>
         </div>
       </div>

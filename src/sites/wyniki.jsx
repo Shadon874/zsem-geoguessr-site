@@ -3,6 +3,7 @@ import TopBar from "../components/top-bar"
 import galaxyIMG from "./galaxy.png";
 import "./wyniki.scss"
 import { motion } from 'framer-motion';
+import Foot from "../components/footer";
 
 export default function Wyniki() {
     return (
@@ -24,6 +25,8 @@ export default function Wyniki() {
             >
                 <h1>Wyniki II Etapu zjawią się 22.10.25</h1>
             </motion.div>
+            <Foot />
+            
         </div>
     )
 }

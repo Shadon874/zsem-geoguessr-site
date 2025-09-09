@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Gamepad2, Trophy } from "lucide-react";
+import { MapPin, Gamepad2, Trophy, Link } from "lucide-react";
 
 import "./ReadMore.scss";
 import section1IMG from "./section1.jpg";
@@ -120,9 +120,9 @@ export default function ReadMore() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}>
-          <a href="https://www.plonkit.net/beginners-guide">Poradnik dla początkujących</a>
-          <a href="https://geohints.com/">Przydatne wskazówki</a>
-          <a href="https://www.plonkit.net/guide">Zaawansowany poradnik dotyczący każdego kraju</a>
+          <div><Link className="link"/><a href="https://www.plonkit.net/beginners-guide">Poradnik dla początkujących</a></div>
+          <div><Link className="link"/><a href="https://geohints.com/">Przydatne wskazówki</a></div>
+          <div><Link className="link"/><a href="https://www.plonkit.net/guide">Zaawansowany poradnik dotyczący każdego kraju</a></div>
         </motion.div>
       </section>
       <Foot />
