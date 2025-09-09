@@ -34,7 +34,7 @@ export default function Rok2024() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <video controls >
+                        <video controls poster='./poster.png' >
                             <source src="./2025.mp4" type="video/mp4" />
                         </video>
                     </motion.div>
