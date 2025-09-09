@@ -4,9 +4,9 @@ import { useState } from "react";
 import "./Description.scss";
 
 const descriptionContent = [
-  { id: 0, title: "Etap szkolny", content: "Uczniowie grają klasyczną rozgrywkę w Geoguessr, w postaci 3 rund, najlepszy gracz z każdej grupy przechodzi do następnego etapu" },
-  { id: 1, title: "Etap w ZSEM", content: "z pośrod wszystkich z poprzedniego etapu zostaną wybrani najlepsi do finału" },
-  { id: 2, title: "Finał", content: "Wiele rund... Wygywa jeden" },
+  { id: 0, title: "Etap szkolny", content: "Z każdej szkoły przechodzi dalej 6 uczniów." },
+  { id: 1, title: "Etap w ZSEM", content: "Z pośrod wszystkich z poprzedniego etapu zostaną wybrani najlepsi do finału." },
+  { id: 2, title: "Finał", content: "Podczas wielkiego wydarzenia zostanie wyłonięty mistrz." },
 ];
 
 export default function Description() {
