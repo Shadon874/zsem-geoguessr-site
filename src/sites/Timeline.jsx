@@ -17,14 +17,14 @@ const items = [
   },
   {
     id: 2,
-    date: "21-22 października",
+    date: "22 października",
     title: "Półfinał",
     description: "Wyłonieni z wcześniejszych etapów uczniowie walczą o dostanie się do finałowego etapu.",
     icon: HandFist,
   },
   {
     id: 3,
-    date: "20-21 listopada",
+    date: "20 listopada",
     title: "Wielki Finał",
     description: "Uczestnicy rywalizują w ostatnim etapie w Wyższej Szkole Biznesu w Nowym Sączu.",
     icon: Trophy,
