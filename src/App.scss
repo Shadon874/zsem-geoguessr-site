@@ -95,6 +95,7 @@ body {
 
   @include respond-to(phone) {
     right: 50%;
+    top: calc(40% + 6rem);
     transform: translate(50%, -100%);
   }
 }

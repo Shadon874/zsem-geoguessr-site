@@ -41,7 +41,7 @@ export default function Foot() {
         <div className="footer-section">
           <h3>O nas</h3>
           <p>
-            Konkurs międzyszkolny GeoGuessr organizowany przez Zespół Szkół
+            Konkurs międzyszkolny gry edukacyjnej GeoGuessr organizowany przez Zespół Szkół
             Elektryczno-Mechanicznych to wyjątkowa okazja, by połączyć zabawę z
             nauką geografii.
           </p>
@@ -50,7 +50,7 @@ export default function Foot() {
         <div className="footer-section">
           <h3>Linki</h3>
           <a href="https://zsem.edu.pl">Strona ZSEM</a>
-          <a onClick={()=> {alert("Mamy za dobrych programistów by były jakieś problemy. Supportu nie ma")}}>Support</a>
+          <a onClick={()=> {alert("Mamy za dobrych programistów by były jakieś problemy. Supportu nie ma :P")}}>Support</a>
           <div className="github-links">
             <a onClick={() => setIsDropdownVisible((prev) => !prev)}>
               Github
