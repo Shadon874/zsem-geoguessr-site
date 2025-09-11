@@ -49,14 +49,14 @@ export default function Timeline() {
 
   return (
 
-    <div  style={{
-    backgroundImage: `url(${galaxyIMG})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
-    minHeight: "100vh",
-    padding: 0,
-  }}>
+    <div style={{
+      backgroundImage: `url(${galaxyIMG})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
+      minHeight: "100vh",
+      padding: 0,
+    }}>
       <TopBar />
 
       <div className="timeline">
@@ -84,6 +84,15 @@ export default function Timeline() {
             </motion.div>
           );
         })}
+        <div className="ogladaj wrapper" onClick={() => { window.open('https://www.youtube.com/@zsem_tech'); }}>
+          <motion.button
+            className="ogladaj-button"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >Oglądaj Streama!
+          </motion.button>
+        </div>
       </div>
       <Foot />
     </div>
