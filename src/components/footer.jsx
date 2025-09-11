@@ -73,6 +73,11 @@ export default function Foot() {
         </div>
 
         <div className="footer-section">
+          <h3>Kontakt</h3>
+          <a href="mailto:geoguesser@zsem.edu.pl">geoguesser@zsem.edu.pl</a>
+        </div>
+
+        <div className="footer-section">
           <h3>Bądź na bieżąco</h3>
           <div className="social-icons">
             <a href="https://www.instagram.com/zsemtv/" target="_blank" rel="noopener noreferrer">
