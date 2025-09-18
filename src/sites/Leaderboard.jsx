@@ -5,6 +5,7 @@ import Table from "../components/table.jsx";
 import TopBar from "../components/top-bar.jsx";
 import Foot from "../components/footer.jsx";
 import galaxyIMG from "./galaxy.png";
+import { FinalTimer } from "../components/Timer.jsx";
 
 export default function Leaderboard() {
 
@@ -42,12 +43,20 @@ export default function Leaderboard() {
           </div>
         </div>
 
-        <div className="podium-container">
-          <Podium />
-        </div>
-        <div className="table-container">
-          <Table />
-        </div>
+        {activeTab === "quarter" ? (
+          <>
+            <div className="podium-container">
+              <Podium />
+            </div>
+            <div className="table-container">
+              <Table />
+            </div>
+          </>
+        ) : (
+          <div className="final-timer-container">
+            <FinalTimer />
+          </div>
+        )}
       </div>
       <Foot />
     </div>

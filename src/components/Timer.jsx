@@ -19,7 +19,7 @@ export function FinalTimer() {
     });
 
     useEffect(() => {
-        const finalDate = new Date(2025, 9, 30, 15, 0, 0);
+        const finalDate = new Date(2025, 10, 20, -1, 0, 0);
 
         const interval = setInterval(() => {
             const now = new Date();

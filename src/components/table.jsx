@@ -18,7 +18,7 @@ export default function Table() {
                     </tr>
                 </thead>
                 <tbody>
-                    {sortedData.map((item, index) => (
+                    {sortedData.slice(3).map((item, index) => (
                         <motion.tr
                             key={index}
                             initial={{ opacity: 0, y: 10 }}
@@ -26,7 +26,7 @@ export default function Table() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: index * 0.2 }}
                         >
-                            <td>{index + 1}</td>
+                            <td>{index + 4}</td>
                             <td>{item.name}</td>
                             <td>{item.score}</td>
                         </motion.tr>

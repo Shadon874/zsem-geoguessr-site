@@ -5,6 +5,15 @@
   margin: 10rem auto 0 auto;
   font-family: sans-serif;
   color: #eee;
+  min-height: 75vh;
+}
+
+.final-timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 60vh;
 }
 
 .table-container {
