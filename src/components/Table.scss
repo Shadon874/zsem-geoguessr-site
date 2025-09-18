@@ -1,0 +1,63 @@
+table {
+  border-collapse: separate;
+  border-spacing: 0 8px; // more breathing space between rows
+  width: 60vw;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+
+  thead {
+    color: #000;
+
+    th {
+      padding: 14px 22px;
+      text-align: left;
+      background: #ffffffcc; // translucent white
+      backdrop-filter: blur(10px);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+
+      &:first-child {
+        border-top-left-radius: 20px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 20px;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      position: relative;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      border-radius: 12px;
+      transition: transform 0.25s ease, background 0.25s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px) scale(1.01);
+      }
+
+      &:last-child::after {
+        display: none; // remove divider on last row
+      }
+
+      &:nth-child(odd) {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      &:nth-child(even) {
+        background: rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    td {
+      padding: 14px 22px;
+      color: #eee;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    }
+  }
+}

@@ -1,11 +1,14 @@
 import React from 'react';
 import "./Podium.scss"
 import { motion } from 'framer-motion';
+import { leaderboardData } from "../data/ScoresV1.jsx";
+
+const sortedData = [...leaderboardData].sort((a, b) => b.score - a.score);
 
 const podiumData = [
-    { place: 2, price: "50zł", height: 120 },
-    { place: 1, price: "100zł", height: 150 },
-    { place: 3, price: "20zł", height: 100 },
+    { place: 2, price: sortedData[1].name, height: 200 },
+    { place: 1, price: sortedData[0].name, height: 250 },
+    { place: 3, price: sortedData[2].name, height: 150 },
 ];
 
 export default function Podium() {
@@ -16,7 +19,7 @@ export default function Podium() {
                 whileInView={{opacity: 1, y: 0}}
                 transition={{duration: 0.3}}
             >
-                Nagrody
+                Podium
             </motion.h1>
             {/* Ceny w jednej linii */}
             <div className="prices-row">
