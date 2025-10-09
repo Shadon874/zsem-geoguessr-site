@@ -2,6 +2,7 @@ import React from 'react';
 import "./Podium.scss"
 import { motion } from 'framer-motion';
 import { leaderboardData } from "../data/ScoresV1.jsx";
+import { Trophy, CircleStar } from 'lucide-react';
 
 const sortedData = [...leaderboardData].sort((a, b) => b.score - a.score);
 
@@ -31,6 +32,7 @@ export default function Podium() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 1.5 }}
                     >
+                        {(item.place == 1) ? <Trophy/> : <CircleStar/>}
                         <p>{item.price}</p>
                     </motion.div>
                 ))}

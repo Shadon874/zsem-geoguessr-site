@@ -1,3 +1,4 @@
+
 export const leaderboardData = [
     {name: "Albert Dzikafaja", score: 259 },
     {name: "Marcin Grota", score: 200 },

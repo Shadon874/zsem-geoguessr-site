@@ -9,15 +9,14 @@
   .prices-row {
     display: flex;
     justify-content: center;
-    gap: 5rem;
+    gap: 4.5rem;
     width: 100%;
 
     .price {
       width: 100px;
       max-width: 20vw;
-      background: white;
       border-radius: 50px;
-      color: black;
+      color: rgb(255, 255, 255);
       font-weight: bold;
       display: flex;
       justify-content: center;
