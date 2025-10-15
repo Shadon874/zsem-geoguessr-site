@@ -46,7 +46,7 @@ export default function Leaderboard() {
         {activeTab === "quarter" ? (
           <>
             <div className="podium-container">
-              <Podium />
+              <Podium/>
             </div>
             <div className="table-container">
               <Table />
@@ -54,7 +54,7 @@ export default function Leaderboard() {
           </>
         ) : (
           <div className="final-timer-container">
-            <FinalTimer />
+            <FinalTimer final={true} data={new Date(2025, 10, 20, -1, 0, 0)}/>
           </div>
         )}
       </div>

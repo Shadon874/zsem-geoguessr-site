@@ -4,6 +4,7 @@ import galaxyIMG from "./galaxy.png";
 import "./wyniki.scss"
 import { motion } from 'framer-motion';
 import Foot from "../components/footer";
+import { FinalTimer } from "../components/Timer.jsx";
 
 export default function Wyniki() {
     return (
@@ -24,6 +25,7 @@ export default function Wyniki() {
                 transition={{ duration: 0.6 }}
             >
                 <h1>Wyniki II Etapu zjawią się 22.10.25</h1>
+                <FinalTimer data={new Date(2025, 9, 22, -1, 0, 0)}></FinalTimer>
             </motion.div>
             <Foot />
             

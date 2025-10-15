@@ -3,7 +3,7 @@ import { differenceInDays, differenceInHours, differenceInMinutes, differenceInS
 import { motion, AnimatePresence } from "framer-motion";
 import "./Timer.scss";
 
-export function FinalTimer() {
+export function FinalTimer({data, final=false}) {
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
@@ -19,15 +19,14 @@ export function FinalTimer() {
     });
 
     useEffect(() => {
-        const finalDate = new Date(2025, 10, 20, -1, 0, 0);
 
         const interval = setInterval(() => {
             const now = new Date();
 
-            const days = Math.max(0, differenceInDays(finalDate, now));
-            const hours = Math.max(0, differenceInHours(finalDate, now) % 24);
-            const minutes = Math.max(0, differenceInMinutes(finalDate, now) % 60);
-            const seconds = Math.max(0, differenceInSeconds(finalDate, now) % 60);
+            const days = Math.max(0, differenceInDays(data, now));
+            const hours = Math.max(0, differenceInHours(data, now) % 24);
+            const minutes = Math.max(0, differenceInMinutes(data, now) % 60);
+            const seconds = Math.max(0, differenceInSeconds(data, now) % 60);
 
             setPrevTimeLeft({ ...timeLeft });
             setTimeLeft({
@@ -133,7 +132,7 @@ export function FinalTimer() {
 
     return (
         <div className="timer-container">
-            <h1>Finały odbędą się za</h1>
+            {final && <h1>Finały odbędą się za</h1>}
             <motion.div
                 className="time-box"
                 initial={{ opacity: 0 }}
