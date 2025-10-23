@@ -8,7 +8,7 @@ const sortedData = [...leaderboardData].sort((a, b) => b.score - a.score);
 
 export default function Table() {
     return (
-        <div>
+        <div className="leaderboard-table">
             <table>
                 <thead>
                     <tr>
@@ -21,10 +21,10 @@ export default function Table() {
                     {sortedData.slice(3).map((item, index) => (
                         <motion.tr
                             key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: index * 0.2 }}
+                            // initial={{ opacity: 0, y: 10 }}
+                            // whileInView={{ opacity: 1, y: 0 }}
+                            // viewport={{ once: true }}
+                            // transition={{ duration: 0.3, delay: index * 0.2 }}
                         >
                             <td>{index + 4}</td>
                             <td>{item.name}</td>

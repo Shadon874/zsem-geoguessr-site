@@ -17,8 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/harmonogram' element={<Timeline/>} />
         <Route path='/2024' element={<Rok2024/>} />
         <Route path='/more' element={<ReadMore/>} />
-        <Route path="/wyniki" element={<Wyniki/>} />
-        <Route path="/leaderboard" element={<Leaderboard/>} />
+        <Route path="/wyniki" element={<Leaderboard/>} />
       </Routes>
      </BrowserRouter>
   </StrictMode>,

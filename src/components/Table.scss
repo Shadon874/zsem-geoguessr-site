@@ -1,63 +1,163 @@
-table {
-  border-collapse: separate;
-  border-spacing: 0 8px; // more breathing space between rows
+.table-container {
   width: 60vw;
-  border-radius: 20px;
-  overflow: hidden;
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
+  display: flex;
 
-  thead {
-    color: #000;
-
-    th {
-      padding: 14px 22px;
-      text-align: left;
-      background: #ffffffcc; // translucent white
-      backdrop-filter: blur(10px);
-      font-weight: 600;
-      letter-spacing: 0.5px;
-
-      &:first-child {
-        border-top-left-radius: 20px;
-      }
-
-      &:last-child {
-        border-top-right-radius: 20px;
-      }
-    }
+  @media (max-width: 768px) {
+    width: 90vw;
   }
 
-  tbody {
-    tr {
-      position: relative;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(15px);
-      border-radius: 12px;
-      transition: transform 0.25s ease, background 0.25s ease;
+  table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    table-layout: fixed; // helps consistent column widths
 
-      &:hover {
-        background: rgba(255, 255, 255, 0.15);
-        transform: translateY(-2px) scale(1.01);
-      }
+    thead,
+    tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
 
-      &:last-child::after {
-        display: none; // remove divider on last row
-      }
+    thead {
+      color: #000;
 
-      &:nth-child(odd) {
-        background: rgba(255, 255, 255, 0.05);
-      }
+      th {
+        padding: 14px 22px;
+        text-align: left;
+        background: #ffffffcc;
+        backdrop-filter: blur(10px);
+        font-weight: 600;
+        letter-spacing: 0.5px;
 
-      &:nth-child(even) {
-        background: rgba(255, 255, 255, 0.08);
+        &:first-child {
+          border-top-left-radius: 20px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 20px;
+        }
       }
     }
 
-    td {
-      padding: 14px 22px;
-      color: #eee;
-      text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    tbody {
+      display: block;
+      max-height: 40vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+
+      @media (max-width: 768px) {
+        max-height: 50vh;
+      }
+
+      tr {
+        position: relative;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(15px);
+        border-radius: 12px;
+        transition: transform 0.25s ease, background 0.25s ease;
+        margin-bottom: 8px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+          transform: translateY(-2px) scale(1.01);
+        }
+
+        &:nth-child(odd) {
+          background: rgba(255, 255, 255, 0.05);
+        }
+
+        &:nth-child(even) {
+          background: rgba(255, 255, 255, 0.08);
+        }
+      }
+
+      td {
+        padding: 14px 22px;
+        color: #eee;
+
+        text-sh.table-container {
+          width: 60vw;
+          display: flex;
+
+          table {
+            border-collapse: separate;
+            border-spacing: 0 8px; // more breathing space between rows
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            font-family: "Inter", sans-serif;
+            font-size: 0.95rem;
+
+            thead {
+              color: #000;
+
+              th {
+                padding: 14px 22px;
+                text-align: left;
+                background: #ffffffcc; // translucent white
+                backdrop-filter: blur(10px);
+                font-weight: 600;
+                letter-spacing: 0.5px;
+
+                &:first-child {
+                  border-top-left-radius: 20px;
+                }
+
+                &:last-child {
+                  border-top-right-radius: 20px;
+                }
+              }
+            }
+
+            tbody {
+
+              display: block; // breaks table flow, allows scroll
+              max-height: 200px;
+              overflow-y: auto;
+              width: 100%;
+
+              tr {
+                position: relative;
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(15px);
+                border-radius: 12px;
+                transition: transform 0.25s ease, background 0.25s ease;
+
+                &:hover {
+                  background: rgba(255, 255, 255, 0.15);
+                  transform: translateY(-2px) scale(1.01);
+                }
+
+                &:last-child::after {
+                  display: none; // remove divider on last row
+                }
+
+                &:nth-child(odd) {
+                  background: rgba(255, 255, 255, 0.05);
+                }
+
+                &:nth-child(even) {
+                  background: rgba(255, 255, 255, 0.08);
+                }
+              }
+
+              td {
+                padding: 14px 22px;
+                color: #eee;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+              }
+            }
+          }
+        }
+
+        adow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      }
     }
   }
 }
