@@ -1,0 +1,116 @@
+.double-bracket.transparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+  background: transparent;
+  color: #222;
+  font-family: "Inter", sans-serif;
+  transform: scale(0.85);
+  transform-origin: center;
+}
+
+/* Rounds */
+.round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.round-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Matches */
+.matches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.match {
+  position: relative;
+  width: 150px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
+}
+
+.match:hover {
+  transform: translateY(-2px);
+}
+
+.player {
+  border-radius: 4px;
+  padding: 0.4rem;
+  text-align: center;
+  font-weight: 500;
+  background: #fff;
+  color: #333;
+}
+
+.player.winner {
+  border-color: #222;
+  font-weight: 600;
+}
+
+/* Final */
+.final-round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 5;
+}
+
+.final {
+  background: #f2f2f2;
+}
+
+.final :hover {
+  background: #f2f2f2;
+}
+
+/* Bracket layout */
+.bracket {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.left {
+  justify-content: flex-end;
+}
+
+.right {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .double-bracket.transparent {
+    flex-direction: column;
+    gap: 2rem;
+    transform: scale(1);
+  }
+
+  .match {
+    width: 120px;
+  }
+}
