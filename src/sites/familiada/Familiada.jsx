@@ -1,6 +1,6 @@
 import { useState } from "react";
 import data from "../../familiada.json";
-import "./familiada.scss";
+import "./Familiada.scss";
 
 export default function Familiada() {
     const [revealed, setRevealed] = useState(Array(5).fill(false));
