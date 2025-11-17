@@ -1,0 +1,10 @@
+{
+    "question": "Wymień region Polski",
+    "answers": [
+        { "text": "ŚLĄSK", "points": 36 },
+        { "text": "KASZUBY", "points": 27 },
+        { "text": "PODHALE", "points": 17 },
+        { "text": "MAZURY", "points": 12 },
+        { "text": "WARMIA", "points": 8 }
+    ]
+}
