@@ -33,11 +33,11 @@ $font-family: 'Poppins', 'Arial', sans-serif;
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  height: 600px;
+  min-height: 600px;
 
   @include respond-to(phone) {
     padding: 40px 20px 0;
-    height: 1000px;
+    min-height: 1000px;
   }
 
   .main-footer {
@@ -101,18 +101,12 @@ $font-family: 'Poppins', 'Arial', sans-serif;
     align-items: center;
     margin-top: 20px;
     flex-wrap: wrap;
+    min-height: 600px;
+    height: fit-content;
 
     img {
       object-fit: contain;
       max-width: 100%;
-    }
-
-    .stow {
-      height: 200px;
-
-      @include respond-to(phone) {
-        height: 150px;
-      }
     }
   }
 

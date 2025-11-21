@@ -94,8 +94,10 @@ export default function Foot() {
       </div>
 
       <div className="sponsors">
-        <img src="../sponsors.jpg" alt="sponsorzy"/>
+        <img src="../sponsors.jpg" alt="sponsorzy" onClick={() => open("https://www.zsem.edu.pl")  }/>
       </div>
+        
+
     </motion.footer>
   );
 }
