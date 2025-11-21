@@ -9,6 +9,7 @@ $font-family: 'Poppins', 'Arial', sans-serif;
 @mixin respond-to($breakpoint) {
   @if $breakpoint ==phone {
     @media (max-width: 768px) {
+      margin-top: 30px;
       @content;
     }
   }
@@ -34,6 +35,7 @@ $font-family: 'Poppins', 'Arial', sans-serif;
   width: 100%;
   box-sizing: border-box;
   min-height: 600px;
+
 
   @include respond-to(phone) {
     padding: 40px 20px 0;
