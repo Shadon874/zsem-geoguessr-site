@@ -103,14 +103,8 @@ $font-family: 'Poppins', 'Arial', sans-serif;
     flex-wrap: wrap;
 
     img {
-      height: 100px;
       object-fit: contain;
       max-width: 100%;
-      cursor: pointer;
-
-      @include respond-to(phone) {
-        height: 80px;
-      }
     }
 
     .stow {

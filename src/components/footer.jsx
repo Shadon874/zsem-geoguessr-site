@@ -94,13 +94,7 @@ export default function Foot() {
       </div>
 
       <div className="sponsors">
-        <img src="../zsem.png" alt="zsem" onClick={() => open("https://www.zsem.edu.pl")  }/>
-        <img
-          className="stow"
-          src="../stow.png"
-          alt="stowarzyszenie sądecki elektryk"
-          onClick={() => open("https://www.facebook.com/SadeckiElektryk")  }
-        />
+        <img src="../sponsors.jpg" alt="sponsorzy"/>
       </div>
     </motion.footer>
   );

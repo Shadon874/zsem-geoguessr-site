@@ -13,24 +13,24 @@ const leftRounds = [
     id: 1,
     title: "Round 1",
     games: [
-      { id: 1, player1: { name: "A" }, player2: { name: "B" } },
-      { id: 2, player1: { name: "C" }, player2: { name: "D" } },
-      { id: 3, player1: { name: "E" }, player2: { name: "F" } },
-      { id: 4, player1: { name: "G" }, player2: { name: "H" } },
+      { id: 1, player1: { name: "Jakub Rumin" }, player2: { name: "Jakub Derymacki" } },
+      { id: 2, player1: { name: "Tomasz Warchoł" }, player2: { name: "Kamil Bodziony" } },
+      { id: 3, player1: { name: "Damian Niemiec" }, player2: { name: "Piotr Gutkowski" } },
+      { id: 4, player1: { name: "Igor Małek" }, player2: { name: "Adam Borek" } },
     ],
   },
   {
     id: 2,
     title: "Quarterfinals",
     games: [
-      { id: 5, player1: { name: "Winner 1" }, player2: { name: "Winner 2" } },
-      { id: 6, player1: { name: "Winner 3" }, player2: { name: "Winner 4" } },
+      { id: 5, player1: { name: "Jakub Derymacki" }, player2: { name: "Tomasz Warchoł" } },
+      { id: 6, player1: { name: "Piotr Gutowski" }, player2: { name: "Adam Borek" } },
     ],
   },
   {
     id: 3,
     title: "Semifinal",
-    games: [{ id: 7, player1: { name: "Winner Q1" }, player2: { name: "Winner Q2" } }],
+    games: [{ id: 7, player1: { name: "Jakub Derymacki" }, player2: { name: "Piotr Gutowski" } }],
   },
 ];
 
@@ -39,30 +39,30 @@ const rightRounds = [
     id: 1,
     title: "Round 1",
     games: [
-      { id: 8, player1: { name: "I" }, player2: { name: "J" } },
-      { id: 9, player1: { name: "K" }, player2: { name: "L" } },
-      { id: 10, player1: { name: "M" }, player2: { name: "N" } },
-      { id: 11, player1: { name: "O" }, player2: { name: "P" } },
+      { id: 8, player1: { name: "Jakub Wójcik" }, player2: { name: "Konrad Matusik" } },
+      { id: 9, player1: { name: "Wiktor Gruca" }, player2: { name: "Jan Sadecki" } },
+      { id: 10, player1: { name: "Nikodem Chyc-Kuros" }, player2: { name: "Wojciech Hebda" } },
+      { id: 11, player1: { name: "Oliwier Tokarczyk" }, player2: { name: "Kacper Stafin" } },
     ],
   },
   {
     id: 2,
     title: "Quarterfinals",
     games: [
-      { id: 12, player1: { name: "Winner 5" }, player2: { name: "Winner 6" } },
-      { id: 13, player1: { name: "Winner 7" }, player2: { name: "Winner 8" } },
+      { id: 12, player1: { name: "Konrad Matusik" }, player2: { name: "Wiktor Gruca" } },
+      { id: 13, player1: { name: "Wojciech Hebda" }, player2: { name: "Oliwier Tokarczyk" } },
     ],
   },
   {
     id: 3,
     title: "Semifinal",
-    games: [{ id: 14, player1: { name: "Winner Q3" }, player2: { name: "Winner Q4" } }],
+    games: [{ id: 14, player1: { name: "Korad Matusik" }, player2: { name: "Wojciech Hebda" } }],
   },
 ];
 
 const finalGame = {
-  player1: { name: "Left Finalist" },
-  player2: { name: "Right Finalist" },
+  player1: { name: "Wojciech Hebda" },
+  player2: { name: "Piotr Gutowski" },
 };
 
 
@@ -113,8 +113,7 @@ export default function Leaderboard() {
           </>
         ) : (
           <div>
-            <FinalTimer final={true} data={new Date(2025, 10, 20, -1, 0, 0)}/>
-            {/* <Bracket leftRounds={leftRounds} rightRounds={rightRounds} finalGame={finalGame}/> */}
+            <Bracket leftRounds={leftRounds} rightRounds={rightRounds} finalGame={finalGame}/>
           </div>
         )}
       </div>

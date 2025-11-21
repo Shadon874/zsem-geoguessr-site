@@ -19,7 +19,6 @@ createRoot(document.getElementById('root')).render(
         <Route path='/2024' element={<Rok2024/>} />
         <Route path='/more' element={<ReadMore/>} />
         <Route path="/wyniki" element={<Leaderboard/>} />
-        <Route path='/bracket' element={<Bracket/>}></Route>
         <Route path='/6767mango67mustardgoblin' element={<Familiada/>} />
       </Routes>
      </BrowserRouter>

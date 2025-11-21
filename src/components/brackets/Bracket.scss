@@ -59,8 +59,8 @@
   padding: 0.4rem;
   text-align: center;
   font-weight: 500;
-  background: #fff;
-  color: #333;
+  background: #ffffff17;
+  color: #fff;
 }
 
 .player.winner {
@@ -78,11 +78,15 @@
 }
 
 .final {
-  background: #f2f2f2;
-}
-
-.final :hover {
-  background: #f2f2f2;
+  background: #cecece;
+  .player:first-child {
+    background: #fffc43;
+    color: #666666;
+  }
+  .player:last-child {
+    background: #b3b3b3;
+    color: #ffffff;
+  }
 }
 
 /* Bracket layout */
